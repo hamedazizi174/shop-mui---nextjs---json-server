@@ -47,37 +47,37 @@
     {
       "id": 1,
       "title": "Furniture",
-      "image": "http://localhost:5005/furniture.png",
+      "image": "http://localhost:4000/categories/furniture.png",
       "categoryName": "furniture"
     },
     {
       "id": 2,
-      "title": "Hand Bag",
-      "image": "http://localhost:5005/hand-bag.png",
-      "categoryName": "hand-bag"
+      "title": "Purse",
+      "image": "http://localhost:4000/categories/hand-bag.png",
+      "categoryName": "purse"
     },
     {
       "id": 3,
       "title": "Books",
-      "image": "http://localhost:5005/books.png",
+      "image": "http://localhost:4000/categories/books.png",
       "categoryName": "books"
     },
     {
       "id": 4,
       "title": "Tech",
-      "image": "http://localhost:5005/tech.png",
+      "image": "http://localhost:4000/categories/tech.png",
       "categoryName": "tech"
     },
     {
       "id": 5,
       "title": "Sneakers",
-      "image": "http://localhost:5005/sneakers.png",
+      "image": "http://localhost:4000/categories/sneakers.png",
       "categoryName": "sneakers"
     },
     {
       "id": 6,
       "title": "Travel",
-      "image": "http://localhost:5005/travel.png",
+      "image": "http://localhost:4000/categories/travel.png",
       "categoryName": "travel"
     }
   ],
