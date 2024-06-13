@@ -1,7 +1,8 @@
-import getCategoris from "@/src/api/api";
+import { getCategoris } from "@/src/api/api";
 import { Box, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import CategoryCard from "./CategoryCard/CategoryCard";
+import Loading from "@/src/components/shared/Loading/Loading";
 
 export default function Categories() {
   const [categories, setCategories] = useState<any>([]);
@@ -17,14 +18,15 @@ export default function Categories() {
         Shop Our Top Categories
       </Typography>
       {isLoading ? (
-        <Typography variant="h4">Loading...</Typography>
+        <Loading />
       ) : (
         <Stack direction="row" justifyContent="space-between" m="20px">
           {categories.map((category: any) => (
             <CategoryCard
+              key={category.id}
               url={category.image}
               title={category.title}
-              key={category.id}
+              categoryName={category.categoryName}
             />
           ))}
         </Stack>
