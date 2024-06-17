@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 export default function CategoryPage() {
   const { slug } = useRouter().query;
-  //   console.log(slug);
+  // console.log(slug);
   if (!slug) {
     return (
       <MainLayout>
@@ -13,5 +13,5 @@ export default function CategoryPage() {
       </MainLayout>
     );
   }
-  return <CategoryTemplate slug={slug} />;
+  return <CategoryTemplate slug={slug[0]} />;
 }

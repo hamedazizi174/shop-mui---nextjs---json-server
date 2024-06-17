@@ -3,3 +3,8 @@ export type CategoryProps = {
   title: string;
   categoryName: string;
 };
+
+export type UserProps = {
+  email: string;
+  password: string;
+};

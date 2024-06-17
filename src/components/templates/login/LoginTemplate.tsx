@@ -1,4 +1,6 @@
 import { HOME_PAGE_ROUTE } from "@/src/constant/Routes";
+import useGetUserByEmailPass from "@/src/hooks/useGetUserByEmailPass";
+import { UserProps } from "@/src/types/types";
 import {
   Box,
   Button,
@@ -11,10 +13,23 @@ import {
 } from "@mui/material";
 import { orange } from "@mui/material/colors";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function LoginTemplate() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [loginData, setLoginData] = useState<UserProps>({
+    email: "",
+    password: "",
+  });
+  const { register, handleSubmit } = useForm();
+  const { data } = useGetUserByEmailPass(loginData);
+  // const data = getUsersByEmailPass(loginData);
+  console.log(data);
+
+  function handleLogin(formData) {
+    // event.preventDefault();
+    // console.log(formData);
+    setLoginData(formData);
+  }
 
   return (
     <Box
@@ -55,32 +70,40 @@ export default function LoginTemplate() {
               <Typography variant="body2" sx={{ opacity: "60%" }}>
                 Please Login to Your Account
               </Typography>
-              <TextField
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                label="email address"
-                variant="outlined"
-                type="email"
-                fullWidth
-              />
-              <TextField
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                label="password"
-                variant="outlined"
-                type="password"
-                fullWidth
-              />
-              <Button
-                variant="contained"
-                fullWidth
-                sx={{
-                  backgroundColor: orange[500],
-                  ":hover": { backgroundColor: orange[600] },
+              <form
+                onSubmit={handleSubmit(handleLogin)}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "25px",
                 }}
               >
-                Login
-              </Button>
+                <TextField
+                  {...register("email")}
+                  label="email address"
+                  variant="outlined"
+                  type="email"
+                  fullWidth
+                />
+                <TextField
+                  {...register("password")}
+                  label="password"
+                  variant="outlined"
+                  type="password"
+                  fullWidth
+                />
+                <Button
+                  variant="contained"
+                  type="submit"
+                  fullWidth
+                  sx={{
+                    backgroundColor: orange[500],
+                    ":hover": { backgroundColor: orange[600] },
+                  }}
+                >
+                  Login
+                </Button>
+              </form>
             </Stack>
           </Grid>
         </Grid>
